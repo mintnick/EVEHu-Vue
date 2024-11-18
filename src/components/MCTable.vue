@@ -1,4 +1,5 @@
 <script setup>
+import getThumbnail from './../utils/get-thumbnail.js'
 
 const props = defineProps({
   type: String,
@@ -8,16 +9,6 @@ const props = defineProps({
 const getId = (item) => {
   if (props['type'] == "alliance") return item.alliance_id
   else if (props['type'] == "corporation") return item.corporation_id
-}
-
-const getThumbnail = (id) => {
-  const url = "https://image.evepc.163.com/" + (props['type'] == 'alliance' ? 'Alliance' : 'Corporation') + '/' + id + '_128.png'
-  
-  return {
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${url})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-  }
 }
 
 </script>
@@ -31,7 +22,7 @@ const getThumbnail = (id) => {
     color="rgba(0, 0, 0, 0.8)"
     rounded="true"
     class="d-flex justify-space-between px-1 py-auto"
-    :style="getThumbnail(getId(item))"
+    :style="getThumbnail(type, getId(item))"
     
     v-for="item in data"
     >
