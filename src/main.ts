@@ -7,9 +7,10 @@ import 'vuetify/lib/styles/main.css'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import '@mdi/font/css/materialdesignicons.css'
 
-// Vue-i18n
-import { createI18n } from 'vue-i18n'
+// vue-cookies
+import VueCookies from 'vue-cookies'
 
 // Components
 import App from './App.vue'
@@ -17,13 +18,12 @@ import App from './App.vue'
 const vuetify = createVuetify({
   components,
   directives,
-})
-
-const i18n = createI18n({
-
+  icons: {
+    defaultSet: 'mdi',
+  }
 })
 
 createApp(App)
 .use(vuetify)
-.use(i18n)
+.use(VueCookies, { expires: '1m'})
 .mount('#app')
