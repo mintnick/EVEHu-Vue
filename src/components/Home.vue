@@ -12,7 +12,7 @@ const top_alliances = ref([])
 const top_corporations = ref([])
 const server = route.params.server
 
-async function fetchHomepage() {
+async function fetchData() {
   try {
     const response = await fetch(`http://localhost:3002/${server}`)
     // const response = await fetch(`http://eve-forge-api.nickning.app/${server}`)
@@ -20,7 +20,6 @@ async function fetchHomepage() {
       throw new Error('Cannot fetch api')
     }
     data.value = await response.json()
-    // console.log(data.value)
   } catch (error) {
     console.log('Fetch error: ', error)
   } finally {
@@ -29,7 +28,8 @@ async function fetchHomepage() {
 }
 
 onMounted( async () => {
-  await fetchHomepage()
+  await fetchData()
+  // console.log(data.value)
 })
 </script>
 
@@ -53,9 +53,13 @@ onMounted( async () => {
     <TrendTable v-if="data && data.shrinkingCorporations" :server="server" type="corporation" :data="data.shrinkingCorporations" trend="shrinking" class="w-50 pl-1" />
   </div>
 
-  <h2 class="mt-3">近期雇佣变动</h2>
+  <h2 class="mt-3">近期雇佣加入</h2>
   <div class="d-flex w-100">
-    <HistoryTable v-if="data && data.recentHistory" :server="server" :data="data.recentHistory" />
+    <HistoryTable v-if="data && data.recentJoinHistory" :server="server" type="join" :data="data.recentJoinHistory" />
+  </div>
+  <h2 class="mt-3">近期雇佣离开</h2>
+  <div class="d-flex w-100">
+    <HistoryTable v-if="data && data.recentLeaveHistory" :server="server" type="leave" :data="data.recentLeaveHistory" />
   </div>
 </template>
 

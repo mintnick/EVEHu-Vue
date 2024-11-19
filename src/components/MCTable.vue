@@ -22,7 +22,7 @@ const props = defineProps({
       
       v-for="item in data"
       >
-      <v-col class="text-center"><a :href="`/${type}/` + getId(type, item)" class="my-auto">{{ item.name }}</a></v-col>
+      <v-col class="text-center"><a :href="`/${server}/${type}/` + getId(type, item)" class="my-auto">{{ item.name }}</a></v-col>
       <div class="my-auto">{{ item.member_count }}</div>
     </v-sheet>
   </div>

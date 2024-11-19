@@ -11,8 +11,8 @@
   --link-text-color: #74caff;
   --shrinking-color: #e74c3c;
   --rising-color: #2ecc71;
-  --join-color: #3498db;
-  --leave-color: #f39c12;
+  --join-color: #2ecc71;
+  --leave-color: #e74c3c;
 }
 
 @font-face {

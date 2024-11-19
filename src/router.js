@@ -8,8 +8,8 @@ import Corporation from './components/Corporation.vue'
 const routes = [
   { path: '/', component: Servers },
   { path: '/:server', component: Home },
-  { path: '/alliance/:id', component: Alliance },
-  { path: '/corporation/:id', component: Corporation },
+  { path: '/:server/alliance/:id', component: Alliance },
+  { path: '/:server/corporation/:id', component: Corporation },
 ]
 
 const router = createRouter({
