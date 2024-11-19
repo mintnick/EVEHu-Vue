@@ -13,7 +13,7 @@
       <v-btn icon href="https://nickning.app/donate" target="_blank">
         <v-icon>mdi-hand-coin-outline</v-icon>
       </v-btn>
-      <v-btn icon href="https://github.com/mintnick/EVEHu-Vue/" target="_blank">
+      <v-btn icon href="https://github.com/mintnick/EVEHu-Vue/" target="_blank" class="mr-md-3">
         <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>

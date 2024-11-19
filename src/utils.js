@@ -32,7 +32,7 @@ export function formatDate(server, date_string, full) {
   }
 }
 
-function getImageUrl(server, type, id) {
+export function getImageUrl(server, type, id) {
   if (!id)
     return ""
   if (server == "sr")
