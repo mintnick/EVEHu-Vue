@@ -23,7 +23,7 @@ const props = defineProps({
       
       v-for="item in data"
       >
-      <a :href="`/${type}/` + getId(type, item)" class="my-auto">{{ item.name }}</a>
+      <v-col class="text-center"><a :href="`/${type}/` + getId(type, item)" class="my-auto">{{ item.name }}</a></v-col>
       <div class="my-auto" :class="trend">{{ (item.diff_7days > 0 ? '+' : '') + item.diff_7days }}</div>
     </v-sheet>
   </div>

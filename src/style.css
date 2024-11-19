@@ -9,8 +9,10 @@
 
   --main-text-color: #FEFEFE;
   --link-text-color: #74caff;
-  --shrinking-color: #d6333a;
-  --rising-color: #33d643;
+  --shrinking-color: #e74c3c;
+  --rising-color: #2ecc71;
+  --join-color: #3498db;
+  --leave-color: #f39c12;
 }
 
 @font-face {
@@ -37,6 +39,14 @@ a:visited {
 
 .shrinking {
   color: var(--shrinking-color);
+}
+
+.join {
+  color: var(--join-color);
+}
+
+.leave {
+  color: var(--leave-color);
 }
 
 /* Loading ring */

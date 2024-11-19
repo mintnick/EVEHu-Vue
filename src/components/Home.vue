@@ -1,11 +1,10 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import MCTable from './MCTable.vue';
 import TrendTable from './TrendTable.vue';
 import HistoryTable from './HistoryTable.vue';
 
-const router = useRouter()
 const route = useRoute()
 const data = ref()
 const loading = ref(true)
@@ -15,12 +14,13 @@ const server = route.params.server
 
 async function fetchHomepage() {
   try {
-    const response = await fetch(`http://localhost:3002/${server}`)
+    // const response = await fetch(`http://localhost:3002/${server}`)
+    const response = await fetch(`http://eve-forge-api.nickning.app/${server}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
     data.value = await response.json()
-    console.log(data.value)
+    // console.log(data.value)
   } catch (error) {
     console.log('Fetch error: ', error)
   } finally {
