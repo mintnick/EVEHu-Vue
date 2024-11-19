@@ -29,7 +29,6 @@ export function formatDate(server, date_string) {
     const date = new Date(date_string)
     return date.toLocaleString('zh').slice(0, -3)
   }
-
 }
 
 function getImageUrl(server, type, id) {

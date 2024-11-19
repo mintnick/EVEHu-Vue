@@ -14,7 +14,7 @@ const props = defineProps({
   <div class="d-flex flex-column">
     <h3 class="text-center">{{ type == 'alliance' ? '联盟' : '公司' }}</h3>
     <v-sheet
-      :height="50"
+      :height="60"
       width="100%"
       color="rgba(0, 0, 0, 0.8)"
       rounded="true"

@@ -14,8 +14,8 @@ const server = route.params.server
 
 async function fetchHomepage() {
   try {
-    // const response = await fetch(`http://localhost:3002/${server}`)
-    const response = await fetch(`http://eve-forge-api.nickning.app/${server}`)
+    const response = await fetch(`http://localhost:3002/${server}`)
+    // const response = await fetch(`http://eve-forge-api.nickning.app/${server}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
