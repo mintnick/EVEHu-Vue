@@ -3,7 +3,7 @@
 
 <template>
   <v-app id="v-app">
-    <v-app-bar :elevation="2" rounded density="compact" style="opacity: 70%;">
+    <v-app-bar :elevation="2" rounded density="compact" style="opacity: 90%;">
       <v-app-bar-title>
         <RouterLink to="/" class="text-h5">EVE 户</RouterLink>
       </v-app-bar-title>
