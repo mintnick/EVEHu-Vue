@@ -1,11 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import HistoryTable from './HistoryTable.vue';
 import TrendChart from './TrendChart.vue';
 import { getImageUrl } from './../utils.js'
 
-const router = useRouter()
+// const router = useRouter()
 const route = useRoute()
 const server = route.params.server
 const id = route.params.id

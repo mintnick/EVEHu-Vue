@@ -14,6 +14,7 @@
   --rising-color: #2ecc71;
   --join-color: #2ecc71;
   --leave-color: #e74c3c;
+  --highlight-color: #b06ad1;
 }
 
 @font-face {
@@ -48,6 +49,10 @@ a:visited {
 
 .leave {
   color: var(--leave-color);
+}
+
+.highlight {
+  color: var(--highlight-color);
 }
 
 /* Loading ring */

@@ -7,7 +7,8 @@
       <v-app-bar-title>
         <RouterLink to="/" class="text-h5">EVE 户</RouterLink>
       </v-app-bar-title>
-
+      <div id="server-info"></div>
+      
       <v-spacer></v-spacer>
 
       <v-btn icon href="https://nickning.app/donate" target="_blank">
