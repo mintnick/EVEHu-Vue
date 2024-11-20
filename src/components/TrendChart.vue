@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { Line } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, plugins, scales } from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement)
+ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, plugins, scales)
 
 const props = defineProps({
   trendData: Array,
@@ -98,7 +98,7 @@ onMounted(() => {
 
 <style lang="css" scoped>
 #trend-chart {
-  width: 90% !important;
+  /* width: 90% !important; */
   max-height: 200px !important;
 }
 </style>

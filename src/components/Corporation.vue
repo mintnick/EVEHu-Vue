@@ -45,8 +45,8 @@ async function fetchData() {
 
 onMounted( async () => {
   await fetchData()
-  console.log(data.value.alliance_history)
-  console.log(records.value)
+  // console.log(data.value.alliance_history)
+  // console.log(records.value)
 })
 </script>
 
