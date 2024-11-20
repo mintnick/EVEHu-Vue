@@ -41,7 +41,7 @@ onMounted( async () => {
 
 <template>
   <div v-if="loading" class="lds-dual-ring"></div>
-  <div v-else class="d-flex flex-column align-center">
+  <div v-else class="d-flex flex-column align-center w-100">
     <h2>{{ data.alliance_info.name }}</h2>
     <img :src="getImageUrl(server, 'alliance', data.alliance_info.alliance_id)" />
     <p>
@@ -52,7 +52,7 @@ onMounted( async () => {
 
     <TrendChart v-if="trendData" :trendData="trendData" />
 
-    <div class="d-flex text-center">
+    <div v-if="data.join_history || data.leave_history" class="d-flex text-center">
       <v-col>
         <h3>最近加入</h3>
         <HistoryTable :server="server" type="join" :data="data.join_history" :alliance_name="data.alliance_info.name" />

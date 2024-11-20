@@ -53,9 +53,10 @@ const chart_options = {
       display: true,
       text: '一周内人数',
       color: 'white',
-      font: {size: 18, family: "WenKai, sans-serif"},
+      font: { size: 18, family: "WenKai, sans-serif", },
     },
     tooltip: {
+      enabled: true,
       titleAlign: 'center',
       bodyAlign: 'center',
       titleFont: { size: 14 },
@@ -81,8 +82,6 @@ onMounted(() => {
   } finally {
     loading.value = false
   }
-  
-  // console.log(mc_trend_data.value)
 })
 </script>
 
@@ -99,7 +98,7 @@ onMounted(() => {
 
 <style lang="css" scoped>
 #trend-chart {
-  max-width: 90% !important;
-  max-height: 300px !important;
+  width: 90% !important;
+  max-height: 200px !important;
 }
 </style>

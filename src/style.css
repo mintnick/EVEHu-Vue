@@ -1,6 +1,7 @@
 /* Global */
 :root {
   font-family: WenKai, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -8,7 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --main-text-color: #FEFEFE;
-  --link-text-color: #74caff;
+  --link-text-color: #13c8d1;
   --shrinking-color: #e74c3c;
   --rising-color: #2ecc71;
   --join-color: #2ecc71;
