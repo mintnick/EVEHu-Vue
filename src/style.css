@@ -8,7 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --main-text-color: #FEFEFE;
+  --main-text-color: #fefefe;
   --link-text-color: #13c8d1;
   --shrinking-color: #e74c3c;
   --rising-color: #2ecc71;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: WenKai;
-  src: url("assets/fonts/LXGWWenKai-Medium.ttf")
+  src: url("assets/fonts/LXGWWenKai-Medium.ttf");
 }
 
 .v-application {
@@ -84,4 +84,3 @@ a:visited {
     transform: rotate(360deg);
   }
 }
-

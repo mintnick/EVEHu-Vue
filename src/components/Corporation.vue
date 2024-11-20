@@ -16,8 +16,8 @@ const records = ref([])
 
 async function fetchData() {
   try {
-    const response = await fetch(`http://localhost:3002/${server}/corporations/${id}`)
-    // const response = await fetch(`http://eve-forge-api.nickning.app/${server}/corporations/${id}`)
+    // const response = await fetch(`http://localhost:3002/${server}/corporations/${id}`)
+    const response = await fetch(`http://eve-forge-api.nickning.app/${server}/corporations/${id}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
@@ -46,8 +46,6 @@ async function fetchData() {
 
 onMounted( async () => {
   await fetchData()
-  // console.log(data.value.alliance_history)
-  // console.log(records.value)
 })
 </script>
 
