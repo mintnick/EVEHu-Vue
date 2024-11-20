@@ -42,7 +42,7 @@ onMounted( async () => {
 <template>
   <div v-if="loading" class="lds-dual-ring"></div>
   <div v-else class="d-flex flex-column align-center w-100">
-    <h2>{{ data.alliance_info.name }}</h2>
+    <h2>{{ data.alliance_info.name }}<span v-if="data.corp_info.member_count == 0">[已关闭]</span></h2>
     <img :src="getImageUrl(server, 'alliance', data.alliance_info.alliance_id)" />
     <p>
       角色数:{{ data.alliance_info.member_count }}

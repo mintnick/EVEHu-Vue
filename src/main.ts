@@ -15,7 +15,7 @@ import VueCookies from 'vue-cookies'
 // Components
 import App from './App.vue'
 // @ts-ignore
-import router from './router.js'  
+import router from './router.js'
 
 const vuetify = createVuetify({
   components,

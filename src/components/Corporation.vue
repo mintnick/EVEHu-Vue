@@ -27,15 +27,16 @@ async function fetchData() {
     trendData.value.push(data.value.corp_info.member_count)
 
     // sperate alliance histyro records
-    for (const record of data.value.alliance_history) {
-      records.value.push({...record})
-      if (record.end_date) {
-        records.value.push({
-          ...record,
-          end_date: null,
-        })
+    if (data.value.alliance_history)
+      for (const record of data.value.alliance_history) {
+        records.value.push({...record})
+        if (record.end_date) {
+          records.value.push({
+            ...record,
+            end_date: null,
+          })
+        }
       }
-    }
   } catch (error) {
     console.log('Fetch error: ', error)
   } finally {
@@ -53,7 +54,7 @@ onMounted( async () => {
 <template>
   <div v-if="loading" class="lds-dual-ring"></div>
   <div v-else class="d-flex flex-column align-center w-100">
-    <h2>{{ data.corp_info.name }}</h2>
+    <h2>{{ data.corp_info.name }}<span v-if="data.corp_info.member_count == 0">[已关闭]</span></h2>
     <h4 v-if="data.alliance_name">
       <a :href="`/${server}/alliance/${data.corp_info.alliance_id}`">{{ data.alliance_name }}</a>
       </h4>
