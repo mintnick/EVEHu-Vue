@@ -15,7 +15,7 @@ const trendData = ref([])
 async function fetchData() {
   try {
     // const response = await fetch(`http://localhost:3002/${server}/alliances/${id}`)
-    const response = await fetch(`http://eve-forge-api.nickning.app/${server}/alliances/${id}`)
+    const response = await fetch(`https://eve-forge-api.nickning.app/${server}/alliances/${id}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
