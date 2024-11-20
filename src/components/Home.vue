@@ -20,7 +20,7 @@ const server_name = computed(() => {
 async function fetchData() {
   try {
     // let response = await fetch(`http://localhost:3002/${server}`)
-    const response = await fetch(`http://eve-forge-api.nickning.app/${server}`)
+    let response = await fetch(`http://eve-forge-api.nickning.app/${server}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
