@@ -26,7 +26,8 @@ async function fetchData() {
     }
     data.value = await response.json()
 
-    response = await fetch(`http://localhost:3002/${server}/info`)
+    // response = await fetch(`http://localhost:3002/${server}/info`)
+    response = await fetch(`http://eve-forge-api.nickning.app/${server}/info`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
