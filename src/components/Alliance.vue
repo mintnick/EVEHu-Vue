@@ -33,7 +33,8 @@ async function fetchData() {
 
 onMounted( async () => {
   await fetchData()
-  // console.log(data.value.alliance_info)
+  // console.log(corps.value)
+  // console.log(data.value.corporations.length)
 })
 
 </script>
@@ -42,9 +43,6 @@ onMounted( async () => {
   <div v-if="loading" class="lds-dual-ring"></div>
   <div v-else class="d-flex flex-column align-center">
     <h2>{{ data.alliance_info.name }}</h2>
-    <!-- <div style="width:100%;height:0; padding-top:128px;position:relative;">
-      <img :src="getImageUrl(server, 'alliance', data.alliance_info.alliance_id)" style="position:absolute; top:0; left:40%; width:128px;" />
-    </div> -->
     <img :src="getImageUrl(server, 'alliance', data.alliance_info.alliance_id)" />
     <p>
       角色数:{{ data.alliance_info.member_count }}
@@ -65,8 +63,25 @@ onMounted( async () => {
         <HistoryTable :server="server" type="leave" :data="data.leave_history" :alliance_name="data.alliance_info.name" />
       </v-col>
     </div>
-    </div>
+
+    <h3 class="mt-3">成员</h3>
+    <v-sheet v-if="data.corporations.length" class="d-flex flex-wrap" color="rgba(0,0,0,0)">
+      <v-sheet
+        v-for="item in data.corporations"
+        style="background-repeat: no-repeat; background-position: center;"
+        :style="`background-image:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), URL(${getImageUrl(server, 'corporation', item.corporation_id)})`"
+        :height="50"
+        class="pa-2 mr-2 mb-2"
+      >
+        <a :href="`/${server}/corporation/${item.corporation_id}`">{{ item.name }}</a>
+        
+      </v-sheet>
+    </v-sheet>
+  </div>
 </template>
 
 <style lang="css" scoped>
+.v-sheet {
+  color: #FEFEFE;
+}
 </style>

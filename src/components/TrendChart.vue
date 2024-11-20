@@ -82,7 +82,7 @@ onMounted(() => {
     loading.value = false
   }
   
-  console.log(mc_trend_data.value)
+  // console.log(mc_trend_data.value)
 })
 </script>
 
