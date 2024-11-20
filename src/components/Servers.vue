@@ -8,7 +8,7 @@ const if_info = ref()
 async function fetchData() {
   try {
     // let response = await fetch(`http://localhost:3002/sr/info`)
-    const response = await fetch(`https://eve-forge-api.nickning.app/sr/info`)
+    let response = await fetch(`https://eve-forge-api.nickning.app/sr/info`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
