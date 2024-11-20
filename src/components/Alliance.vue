@@ -52,15 +52,15 @@ onMounted( async () => {
       <a :href="`https://kb.ceve-market.org/alliance/${data.alliance_info.alliance_id}/`" target="_blank">晨曦击杀榜<v-icon icon="mdi-open-in-new" size="x-small"></v-icon></a>
     </p>
 
-    <!-- <TrendChart v-if="trendData" :trendData="trendData" /> -->
+    <TrendChart v-if="trendData" :trendData="trendData" />
 
     <div class="d-flex text-center">
-      <v-col class="w-50">
+      <v-col>
         <h3>最近加入</h3>
         <HistoryTable :server="server" type="join" :data="data.join_history" :alliance_name="data.alliance_info.name" />
       </v-col>
       
-      <v-col class="w-50">
+      <v-col>
         <h3>最近离开</h3>
         <HistoryTable :server="server" type="leave" :data="data.leave_history" :alliance_name="data.alliance_info.name" />
       </v-col>

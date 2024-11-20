@@ -15,13 +15,14 @@ const loading = ref(true)
 const chart_options = {
   animation: true,
   resonsize: true,
+  // maintainAspectRatio: false,
   layout: {
     padding: 10,
   },
   elements: {
     line: {
       borderColor: 'white',
-      borderWidth: 5,
+      borderWidth: 3,
     },
     point: {
       backgroundColor: '#2ecc71',
@@ -33,15 +34,17 @@ const chart_options = {
     x: {
       ticks: {
         color: 'white',
-      }
+      },
+      display: false,
     },
     y: {
       ticks: {
         color: 'white',
-        maxTicksLimit: 6,
+        maxTicksLimit: 5,
       }
     }
   },
+  
   plugins: {
     legend: {
       display: false,
@@ -90,7 +93,13 @@ onMounted(() => {
     :data="mc_trend_data"
     :options="chart_options"
     style="background-color: rgba(0,0,0,0.7);"
+
     />
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+#trend-chart {
+  max-width: 90% !important;
+  max-height: 300px !important;
+}
+</style>
