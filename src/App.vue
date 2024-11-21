@@ -40,7 +40,11 @@ async function fetchSuggestions() {
 function selectSuggestion(item: any) {
   search_query.value = ''
   show_suggestions.value = false
-  router.push(`/${server.value}/${item.corporation_id ? 'corporation/' + item.corporation_id : 'alliance/' + item.alliance_id}`)
+  // router.push(`/${server.value}/${item.corporation_id ? 'corporation/' + item.corporation_id : 'alliance/' + item.alliance_id}`)
+  if (item.corporation_id)
+    router.push({ name: `corporation`, params: {server: server.value, id: item.corporation_id}})
+  else if (item.alliance_id)
+    router.push({ name: `alliance`, params: {server: server.value, id: item.alliance_id}})
 }
 
 </script>
@@ -55,7 +59,12 @@ function selectSuggestion(item: any) {
       
       <v-text-field 
         v-if="server"
-        prepend-inner-icon="mdi-magnify" variant="solo-filled" density="compact" class="my-auto" :flat="true"
+        prepend-inner-icon="mdi-magnify" 
+        variant="solo-filled"
+        density="compact" 
+        class="my-auto" 
+        :flat="true"
+        label="搜索"
         v-model:model-value="search_query"
         v-debounce:500="fetchSuggestions"
       >

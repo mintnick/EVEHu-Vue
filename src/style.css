@@ -10,10 +10,12 @@
 
   --main-text-color: #fefefe;
   --link-text-color: #13c8d1;
-  --shrinking-color: #e74c3c;
-  --rising-color: #2ecc71;
-  --join-color: #2ecc71;
-  --leave-color: #e74c3c;
+  /* --shrinking-color: #e74c3c; */
+  --shrinking-color: #D32F2F;
+  /* --rising-color: #2ecc71; */
+  --rising-color: #00C853;
+  --join-color: #00C853;
+  --leave-color: #D32F2F;
   --highlight-color: #b06ad1;
 }
 

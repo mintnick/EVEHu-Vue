@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import HistoryTable from './HistoryTable.vue';
 import TrendChart from './TrendChart.vue';
@@ -8,8 +8,8 @@ import { api } from './../utils.js'
 
 const router = useRouter()
 const route = useRoute()
-const server = route.params.server
-const id = route.params.id
+let server = route.params.server
+let id = route.params.id
 const data = ref()
 const loading = ref(true)
 const trendData = ref([])
@@ -46,6 +46,11 @@ async function fetchData() {
 
 onBeforeMount(async () => {
   await fetchData()
+})
+
+watch(() => route.params.id, (newId) => {
+  id = newId
+  fetchData()
 })
 </script>
 
