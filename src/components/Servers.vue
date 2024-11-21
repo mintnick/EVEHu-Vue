@@ -1,5 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
+import { api } from './../utils.js'
 
 const sr_info = ref()
 const tq_info = ref()
@@ -7,22 +8,19 @@ const if_info = ref()
 
 async function fetchData() {
   try {
-    // let response = await fetch(`http://localhost:3002/sr/info`)
-    let response = await fetch(`https://eve-forge-api.nickning.app/sr/info`)
+    let response = await fetch(`${api}/sr/info`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
     sr_info.value = await response.json()
 
-    // response = await fetch(`http://localhost:3002/tq/info`)
-    response = await fetch(`https://eve-forge-api.nickning.app/tq/info`)
+    response = await fetch(`${api}/tq/info`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
     tq_info.value = await response.json()
 
-    // response = await fetch(`http://localhost:3002/if/info`)
-    response = await fetch(`https://eve-forge-api.nickning.app/if/info`)
+    response = await fetch(`${api}/if/info`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
@@ -32,8 +30,8 @@ async function fetchData() {
   }
 }
 
-onMounted(async() => {
-  fetchData()
+onBeforeMount(async() => {
+  await fetchData()
 })
 </script>
 

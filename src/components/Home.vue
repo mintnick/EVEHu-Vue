@@ -1,9 +1,10 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, computed, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import MCTable from './MCTable.vue';
 import TrendTable from './TrendTable.vue';
 import HistoryTable from './HistoryTable.vue';
+import { api } from './../utils.js'
 
 const route = useRoute()
 const data = ref()
@@ -19,15 +20,13 @@ const server_name = computed(() => {
 
 async function fetchData() {
   try {
-    // let response = await fetch(`http://localhost:3002/${server}`)
-    let response = await fetch(`https://eve-forge-api.nickning.app/${server}`)
+    let response = await fetch(`${api}/${server}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
     data.value = await response.json()
 
-    // response = await fetch(`http://localhost:3002/${server}/info`)
-    response = await fetch(`https://eve-forge-api.nickning.app/${server}/info`)
+    response = await fetch(`${api}/${server}/info`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
@@ -39,7 +38,7 @@ async function fetchData() {
   }
 }
 
-onMounted( async () => {
+onBeforeMount(async () => {
   await fetchData()
 })
 </script>
@@ -57,29 +56,29 @@ onMounted( async () => {
   </h3>
 
   <h2 class="mt-3">最多角色数量</h2>
-  <div class="d-flex w-100">
+  <div class="d-flex w-100 justify-center">
     <MCTable v-if="data && data.topAlliances" :server="server" type="alliance" :data="data.topAlliances" class="w-50 pr-1"/>
     <MCTable v-if="data && data.topAlliances" :server="server" type="corporation" :data="data.topCorporations" class="w-50 pl-1"/>
   </div>
 
   <h2 class="mt-3">七日内增长</h2>
-  <div class="d-flex w-100">
+  <div class="d-flex w-100 justify-center">
     <TrendTable v-if="data && data.risingAlliances" :server="server" type="alliance" :data="data.risingAlliances" trend="rising" class="w-50 pr-1" />
     <TrendTable v-if="data && data.risingCorporations" :server="server" type="corporation" :data="data.risingCorporations" trend="rising" class="w-50 pl-1" />
   </div>
 
   <h2 class="mt-3">七日内下降</h2>
-  <div class="d-flex w-100">
+  <div class="d-flex w-100 justify-center">
     <TrendTable v-if="data && data.shrinkingAlliances" :server="server" type="alliance" :data="data.shrinkingAlliances" trend="shrinking" class="w-50 pr-1" />
     <TrendTable v-if="data && data.shrinkingCorporations" :server="server" type="corporation" :data="data.shrinkingCorporations" trend="shrinking" class="w-50 pl-1" />
   </div>
 
   <h2 class="mt-3">近期雇佣加入</h2>
-  <div class="d-flex w-100">
+  <div class="d-flex w-100 justify-center">
     <HistoryTable v-if="data && data.recentJoinHistory" :server="server" type="join" :data="data.recentJoinHistory" />
   </div>
   <h2 class="mt-3">近期雇佣退出</h2>
-  <div class="d-flex w-100">
+  <div class="d-flex w-100 justify-center">
     <HistoryTable v-if="data && data.recentLeaveHistory" :server="server" type="leave" :data="data.recentLeaveHistory" />
   </div>
 </template>

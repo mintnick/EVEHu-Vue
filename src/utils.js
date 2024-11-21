@@ -1,3 +1,6 @@
+export const api = 'http://localhost:3002'
+// export const api = 'https://eve-forge-api.nickning.app/'
+
 export function getThumbnail(server, type, id) {
   const url = getImageUrl(server, type, id);
 

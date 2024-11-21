@@ -55,6 +55,10 @@ a:visited {
   color: var(--highlight-color);
 }
 
+.table {
+  max-width: 600px !important;
+}
+
 /* Loading ring */
 .lds-dual-ring,
 .lds-dual-ring:after {

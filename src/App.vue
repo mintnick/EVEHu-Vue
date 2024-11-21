@@ -46,7 +46,7 @@ function selectSuggestion(item: any) {
 </script>
 
 <template>
-  <v-app id="v-app">
+  <v-app id="v-app" class="d-flex">
     <v-app-bar :elevation="2" rounded density="compact" style="opacity: 90%; overflow: visible !important;">
       <v-app-bar-title>
         <RouterLink to="/" class="text-h5">EVE 户</RouterLink>
@@ -80,7 +80,7 @@ function selectSuggestion(item: any) {
       >{{ item['name'] }}</v-list-item>
     </v-list>
 
-    <v-main>
+    <v-main id="main">
       <v-container class="d-flex flex-column align-center">
         <RouterView />
       </v-container>
@@ -97,6 +97,11 @@ function selectSuggestion(item: any) {
 
 #app a {
   color: #0E0E0E;
+}
+
+#main {
+  max-width: 1400px !important;
+  margin: auto;
 }
 
 .suggestion-list {

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { Line } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, plugins, scales } from 'chart.js'
 
@@ -67,23 +67,21 @@ const chart_options = {
   }
 }
 
-onMounted(() => {
-  try {
-    for (let i = 6; i > 0; i--)
-      labels.value.push(`${i}天前`)
-    labels.value.push('今天')
+try {
+  for (let i = 6; i > 0; i--)
+    labels.value.push(`${i}天前`)
+  labels.value.push('今天')
 
-    mc_trend_data.value = {
-      labels: labels.value,
-      datasets: [{
-        data: props['trendData'],
-        tension: 0.1
-      }]
-    }
-  } finally {
-    loading.value = false
+  mc_trend_data.value = {
+    labels: labels.value,
+    datasets: [{
+      data: props['trendData'],
+      tension: 0.1
+    }]
   }
-})
+} finally {
+  loading.value = false
+}
 </script>
 
 <template>
@@ -93,13 +91,12 @@ onMounted(() => {
     :data="mc_trend_data"
     :options="chart_options"
     style="background-color: rgba(0,0,0,0.7);"
-
     />
 </template>
 
 <style lang="css" scoped>
 #trend-chart {
-  /* width: 90% !important; */
   max-height: 200px !important;
+  max-width: 800px !important;
 }
 </style>

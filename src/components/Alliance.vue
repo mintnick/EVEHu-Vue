@@ -1,9 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import HistoryTable from './HistoryTable.vue';
 import TrendChart from './TrendChart.vue';
 import { getImageUrl } from './../utils.js'
+import { api } from './../utils.js'
 
 const route = useRoute()
 const server = route.params.server
@@ -14,11 +15,11 @@ const trendData = ref([])
 
 async function fetchData() {
   try {
-    // const response = await fetch(`http://localhost:3002/${server}/alliances/${id}`)
-    const response = await fetch(`https://eve-forge-api.nickning.app/${server}/alliances/${id}`)
+    const response = await fetch(`${api}/${server}/alliances/${id}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
+    
     data.value = await response.json()
     for (let i = 7; i > 1; i--) 
       trendData.value.push(data.value.alliance_info[`mc_${i}`])
@@ -30,7 +31,7 @@ async function fetchData() {
   }
 }
 
-onMounted( async () => {
+onBeforeMount(async () => {
   await fetchData()
 })
 
@@ -39,7 +40,7 @@ onMounted( async () => {
 <template>
   <div v-if="loading" class="lds-dual-ring"></div>
   <div v-else class="d-flex flex-column align-center w-100">
-    <h2>{{ data.alliance_info.name }}<span v-if="data.corp_info.member_count == 0">[已关闭]</span></h2>
+    <h2>{{ data.alliance_info.name }}<span v-if="data.alliance_info.member_count == 0">[已关闭]</span></h2>
     <img :src="getImageUrl(server, 'alliance', data.alliance_info.alliance_id)" />
     <p>
       角色数:{{ data.alliance_info.member_count }}

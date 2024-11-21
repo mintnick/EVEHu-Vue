@@ -1,9 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import HistoryTable from './HistoryTable.vue';
 import TrendChart from './TrendChart.vue';
 import { getImageUrl } from './../utils.js'
+import { api } from './../utils.js'
 
 const router = useRouter()
 const route = useRoute()
@@ -16,8 +17,7 @@ const records = ref([])
 
 async function fetchData() {
   try {
-    // const response = await fetch(`http://localhost:3002/${server}/corporations/${id}`)
-    const response = await fetch(`https://eve-forge-api.nickning.app/${server}/corporations/${id}`)
+    const response = await fetch(`${api}/${server}/corporations/${id}`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
@@ -44,7 +44,7 @@ async function fetchData() {
   }
 }
 
-onMounted( async () => {
+onBeforeMount(async () => {
   await fetchData()
 })
 </script>
