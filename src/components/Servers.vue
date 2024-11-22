@@ -42,11 +42,11 @@ onBeforeMount(async() => {
       <p v-if="sr_players">在线：{{ sr_players }}</p>
     </div>
     <div>
-      <v-btn disabled href="/tq" size="x-large" class="w-100">宁静 Tranquility</v-btn>
+      <v-btn href="/tq" size="x-large" class="w-100">宁静 Tranquility</v-btn>
       <p v-if="tq_players">在线：{{ tq_players }}</p>
     </div>
     <div>
-      <v-btn disabled href="/if" size="x-large" class="w-100">曙光 Infinity</v-btn>
+      <v-btn href="/if" size="x-large" class="w-100">曙光 Infinity</v-btn>
       <p v-if="if_players">在线：{{ if_players }}</p>
     </div>
   </div>

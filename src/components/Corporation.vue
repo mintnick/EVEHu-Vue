@@ -27,16 +27,16 @@ async function fetchData() {
     trendData.value.push(data.value.corp_info.member_count)
 
     // sperate alliance histyro records
-    if (data.value.alliance_history)
-      for (const record of data.value.alliance_history) {
-        records.value.push({...record})
-        if (record.end_date) {
-          records.value.push({
-            ...record,
-            end_date: null,
-          })
-        }
-      }
+    // if (data.value.alliance_history)
+    //   for (const record of data.value.alliance_history) {
+    //     records.value.push({...record})
+    //     if (record.end_date) {
+    //       records.value.push({
+    //         ...record,
+    //         end_date: null,
+    //       })
+    //     }
+    //   }
   } catch (error) {
     console.log('Fetch error: ', error)
   } finally {
@@ -74,7 +74,7 @@ watch(() => route.params.id, (newId) => {
 
     <div v-if="data.alliance_history" class="mt-3">
       <h4 class="text-center">最近雇佣变动</h4>
-      <HistoryTable :server="server" :data="records" :corporation_name="data.corp_info.name"/>
+      <HistoryTable :server="server" :data="data.alliance_history" :corporation_name="data.corp_info.name"/>
     </div>
   </div>
 </template>
