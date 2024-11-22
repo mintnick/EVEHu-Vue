@@ -37,7 +37,7 @@ const fullSize = computed(() => {
       </v-sheet>
 
       <v-sheet
-        v-if="!alliance_name && item.end_date"
+        v-if="corporation_name && item.end_date"
         :height="60"
         width="100%"
         max-width="700"
