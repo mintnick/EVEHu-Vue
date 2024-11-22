@@ -42,7 +42,7 @@ onMounted(() => {
       </v-sheet>
 
       <v-sheet
-        v-if="item.end_date"
+        v-if="!alliance_name && item.end_date"
         :height="60"
         width="100%"
         max-width="700"
