@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, onMounted } from 'vue';
+import { computed } from 'vue';
 import { getThumbnail, getHistoryThumbnail, formatDate } from '../utils.js'
 
 const props = defineProps({
@@ -9,15 +9,10 @@ const props = defineProps({
   alliance_name: String,
   corporation_name: String,
 })
-const records = ref([])
 
 const fullSize = computed(() => {
   if (!props['alliance_name'] && !props['corporation_name']) return true
   return false
-})
-
-onMounted(() => {
-  console.log(props['data'])
 })
 </script>
 

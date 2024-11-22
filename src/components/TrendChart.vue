@@ -15,7 +15,6 @@ const loading = ref(true)
 const chart_options = {
   animation: true,
   resonsize: true,
-  // maintainAspectRatio: false,
   layout: {
     padding: 10,
   },
@@ -45,7 +44,7 @@ const chart_options = {
       }
     }
   },
-  
+
   plugins: {
     legend: {
       display: false,
@@ -61,7 +60,7 @@ const chart_options = {
       titleAlign: 'center',
       bodyAlign: 'center',
       titleFont: { size: 14 },
-      bodyFont: { size: 14},
+      bodyFont: { size: 14 },
       displayColors: false,
     }
   }
@@ -85,13 +84,8 @@ try {
 </script>
 
 <template>
-  <Line 
-    v-if="!loading"
-    id="trend-chart"
-    :data="mc_trend_data"
-    :options="chart_options"
-    style="background-color: rgba(0,0,0,0.7);"
-    />
+  <Line v-if="!loading" id="trend-chart" :data="mc_trend_data" :options="chart_options"
+    style="background-color: rgba(0,0,0,0.7);" />
 </template>
 
 <style lang="css" scoped>

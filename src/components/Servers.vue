@@ -30,7 +30,7 @@ async function fetchData() {
   }
 }
 
-onBeforeMount(async() => {
+onBeforeMount(async () => {
   await fetchData()
 })
 </script>
