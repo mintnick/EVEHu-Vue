@@ -2,29 +2,29 @@
 import { onBeforeMount, ref } from 'vue'
 import { api } from './../utils.js'
 
-const sr_info = ref()
-const tq_info = ref()
-const if_info = ref()
+const sr_players = ref()
+const tq_players = ref()
+const if_players = ref()
 
 async function fetchData() {
   try {
-    let response = await fetch(`${api}/sr/info`)
+    let response = await fetch(`https://ali-esi.evepc.163.com/latest/status/?datasource=serenity`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
-    sr_info.value = await response.json()
+    sr_players.value = (await response.json())?.players
 
-    response = await fetch(`${api}/tq/info`)
+    response = await fetch(`https://esi.evetech.net/latest/status/?datasource=tranquility`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
-    tq_info.value = await response.json()
+    tq_players.value = (await response.json())?.players
 
-    response = await fetch(`${api}/if/info`)
+    response = await fetch(`https://ali-esi.evepc.163.com/latest/status/?datasource=infinity`)
     if (!response.ok) {
       throw new Error('Cannot fetch api')
     }
-    if_info.value = await response.json()
+    if_players.value = (await response.json())?.players
   } catch (error) {
     console.log('Fetch error: ', error)
   }
@@ -36,18 +36,18 @@ onBeforeMount(async() => {
 </script>
 
 <template>
-  <div class="d-flex flex-column ga-10 mt-5">
-    <div class="w-100 text-center">
+  <div class="d-flex flex-column ga-10 mt-5 text-center">
+    <div>
       <v-btn href="/sr" size="x-large" class="w-100">晨曦 Serenity</v-btn>
-      <p v-if="sr_info">在线：{{ sr_info.players }} 总数：{{ Number(sr_info.total).toLocaleString() }}</p>
+      <p v-if="sr_players">在线：{{ sr_players }}</p>
     </div>
     <div>
       <v-btn disabled href="/tq" size="x-large" class="w-100">宁静 Tranquility</v-btn>
-      <p v-if="tq_info">在线：{{ tq_info.players }} 总数：{{ Number(tq_info.total).toLocaleString() }}</p>
+      <p v-if="tq_players">在线：{{ tq_players }}</p>
     </div>
     <div>
       <v-btn disabled href="/if" size="x-large" class="w-100">曙光 Infinity</v-btn>
-      <p v-if="if_info">在线：{{ if_info.players }} 总数：{{ Number(if_info.total).toLocaleString() }}</p>
+      <p v-if="if_players">在线：{{ if_players }}</p>
     </div>
   </div>
 </template>
