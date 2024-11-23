@@ -35,11 +35,6 @@ async function fetchData() {
 onBeforeMount(async () => {
   await fetchData()
 })
-
-watch(() => route.params.id, (newId) => {
-  id = newId
-  fetchData()
-})
 </script>
 
 <template>
@@ -55,7 +50,7 @@ watch(() => route.params.id, (newId) => {
     </div>
     <p>
       角色数:{{ data.corp_info.member_count }}
-      <a :href="`https://kb.ceve-market.org/corp/${data.corp_info.corporation_id}/`" target="_blank">晨曦击杀榜<v-icon
+      <a :href="`https://kb.ceve-market.org/corp/${id}/`" target="_blank">晨曦击杀榜<v-icon
           icon="mdi-open-in-new" size="x-small"></v-icon></a>
     </p>
 
