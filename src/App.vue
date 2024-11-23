@@ -22,7 +22,7 @@ const server_list = [
 
 const other_list = [
   { title: '设置文件管理', value: 'https://nickning.app/esm'},
-  { title: 'AT 阵容模拟', value: 'https://nickning.app/atdraft'},
+  { title: 'AT 阵容模拟', value: 'https://atdraft.evehu.org'},
 ]
 
 const link_list = [
