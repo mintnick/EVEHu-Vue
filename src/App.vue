@@ -162,10 +162,6 @@ function selectSuggestion(item: any) {
   margin: auto;
 }
 
-/* #search-bar {
-  max-width: 100px !important;
-} */
-
 .suggestion-list {
   max-height: 200px;
   overflow-y: auto;
