@@ -21,7 +21,7 @@ const server_list = [
 ]
 
 const other_list = [
-  { title: '主权战追踪', value: 'https://camp.nickning.app'},
+  { title: '主权战追踪', value: 'https://camp.evehu.org'},
   { title: '设置文件管理', value: 'https://nickning.app/esm'},
   { title: 'AT 阵容模拟', value: 'https://atdraft.evehu.org'},
 ]
