@@ -52,6 +52,7 @@ export function getImageUrl(server, type, id) {
     return "";
   }
   if (server == "sr") {
+    console.log(server, type, id)
     return "https://image.evepc.163.com/" +
       (type == "alliance" ? "Alliance" : "Corporation") + "/" + id + "_128.png";
   } else if (server == "tq") {
