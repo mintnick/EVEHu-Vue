@@ -39,12 +39,10 @@ export function getHistoryThumbnail(
   };
 }
 
-export function formatDate(server, date_string, full) {
-  if (server == "sr") {
-    const date = new Date(date_string);
-    if (!full) return date.toLocaleString("zh").slice(0, -9);
-    return date.toLocaleString("zh").slice(0, -3);
-  }
+export function formatDate(date_string, full) {
+  const date = new Date(date_string);
+  return date.toLocaleString("zh").slice(0, -9);
+  // return date.toLocaleString("zh").slice(0, -3);
 }
 
 export function getImageUrl(server, type, id) {
@@ -52,10 +50,14 @@ export function getImageUrl(server, type, id) {
     return "";
   }
   if (server == "sr") {
-    console.log(server, type, id)
     return "https://image.evepc.163.com/" +
       (type == "alliance" ? "Alliance" : "Corporation") + "/" + id + "_128.png";
   } else if (server == "tq") {
     return "https://images.evetech.net/" + type + "s/" + id + "/logo?size=128";
+  } else if (server == "if") {  //TODO: infinity image server?
+    return "https://image.evepc.163.com/" +
+      (type == "alliance" ? "Alliance" : "Corporation") + "/" + id + "_128.png?datasource=infinity";
   }
+
+  return ""
 }
