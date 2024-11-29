@@ -69,9 +69,9 @@ onBeforeMount(async () => {
     <h3 class="mt-3">成员</h3>
     <v-sheet v-if="data.corporations.length" class="d-flex flex-wrap" color="rgba(0,0,0,0)">
       <v-sheet v-for="item in data.corporations" style="background-repeat: no-repeat; background-position: center;"
-        :style="`background-image:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), URL(${getImageUrl(server, 'corporation', id)})`"
+        :style="`background-image:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), URL(${getImageUrl(server, 'corporation', item.corporation_id)})`"
         :height="50" class="pa-2 mr-2 mb-2">
-        <a :href="`/${server}/corporation/${id}`">{{ item.name }}</a>
+        <a :href="`/${server}/corporation/${item.corporation_id}`">{{ item.name }}</a>
       </v-sheet>
     </v-sheet>
   </div>
