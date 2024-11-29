@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 import { Line } from 'vue-chartjs';
-import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, plugins, scales } from 'chart.js'
+import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, plugins, scales, Filler } from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, plugins, scales)
+ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, plugins, scales, Filler)
 
 const props = defineProps({
   trendData: Array,
@@ -15,6 +15,8 @@ const loading = ref(true)
 const chart_options = {
   animation: true,
   resonsize: true,
+  fill: true,
+  backgroundColor: 'rgba(75, 192, 192, 0.2)',
   layout: {
     padding: 10,
   },
@@ -62,7 +64,10 @@ const chart_options = {
       titleFont: { size: 14 },
       bodyFont: { size: 14 },
       displayColors: false,
-    }
+    },
+    filler: {
+
+    },
   }
 }
 
@@ -75,7 +80,7 @@ try {
     labels: labels.value,
     datasets: [{
       data: props['trendData'],
-      tension: 0.1
+      tension: 0.1,
     }]
   }
 } finally {
