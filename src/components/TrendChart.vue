@@ -90,11 +90,14 @@ try {
 
 <template>
   <Line v-if="!loading" id="trend-chart" :data="mc_trend_data" :options="chart_options"
-    style="background-color: rgba(0,0,0,0.7);" />
+  style="background-color: rgba(0,0,0,0.7);" />
 </template>
 
 <style lang="css" scoped>
 #trend-chart {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   max-height: 200px !important;
   max-width: 800px !important;
 }

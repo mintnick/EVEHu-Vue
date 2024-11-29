@@ -17,11 +17,10 @@ const fullDate = computed(() => {
 </script>
 
 <template>
-  <div class="d-flex flex-column w-100 align-center">
-    <div v-for="item in data" class="w-100">
+  <div class="d-flex flex-column">
+    <div v-for="item in data">
       <v-sheet
         :height="60"
-        width="100%"
         max-width="700"
         color="rgba(0, 0, 0, 0.8)"
         rounded="true"
@@ -29,7 +28,7 @@ const fullDate = computed(() => {
         :style="getHistoryThumbnail(server, item.alliance_id, item.corporation_id, alliance_name, corporation_name)"
       >
       <v-col v-if="!corporation_name" class="text-center"><a :href="`/${server}/corporation/` + item.corporation_id" class="my-auto">{{ item.corporation_name ?? corporation_name }}</a></v-col>
-      <v-col class="flex-grow-1 flex-shrink-0 text-center">
+      <v-col class="text-center">
         {{ formatDate((item.end_date || item.start_date), fullDate) }}
         <span :class="type ?? (item.end_date ? 'leave' : 'join')" style="white-space: nowrap;">{{  (item.end_date ? '退出' : '加入') }}</span>
       </v-col>

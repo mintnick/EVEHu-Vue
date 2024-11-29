@@ -49,9 +49,11 @@ onBeforeMount(async () => {
           icon="mdi-open-in-new" size="x-small"></v-icon></a>
     </p>
 
-    <TrendChart v-if="trendData" :trendData="trendData" />
+    <div class="w-100 px-auto">
+      <TrendChart v-if="trendData" :trendData="trendData" />
+    </div>
 
-    <div v-if="data.join_history || data.leave_history" class="d-flex text-center">
+    <v-row v-if="data.join_history || data.leave_history" class="d-flex text-center">
       <v-col>
         <h3>最近加入</h3>
         <HistoryTable :server="server" type="join" :data="data.join_history" :alliance_name="data.alliance_info.name" />
@@ -62,7 +64,7 @@ onBeforeMount(async () => {
         <HistoryTable :server="server" type="leave" :data="data.leave_history"
           :alliance_name="data.alliance_info.name" />
       </v-col>
-    </div>
+    </v-row>
 
     <h3 class="mt-3">成员</h3>
     <v-sheet v-if="data.corporations.length" class="d-flex flex-wrap" color="rgba(0,0,0,0)">
