@@ -49,7 +49,7 @@ onBeforeMount(async () => {
           icon="mdi-open-in-new" size="x-small"></v-icon></a>
     </p>
 
-    <div class="w-100 px-auto">
+    <div class="w-100">
       <TrendChart v-if="trendData" :trendData="trendData" />
     </div>
 

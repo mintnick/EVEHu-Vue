@@ -39,7 +39,7 @@ const chart_options = {
       display: false,
     },
     y: {
-      min: 0,
+      // min: 0,
       ticks: {
         color: 'white',
         maxTicksLimit: 5,
