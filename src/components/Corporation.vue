@@ -54,7 +54,9 @@ onBeforeMount(async () => {
           icon="mdi-open-in-new" size="x-small"></v-icon></a>
     </p>
 
-    <TrendChart v-if="trendData" :trendData="trendData" />
+    <div class="w-100">
+      <TrendChart v-if="trendData" :trendData="trendData" />
+    </div>
 
     <div v-if="data.alliance_history" class="mt-3">
       <h4 class="text-center">最近雇佣变动</h4>
